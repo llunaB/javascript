@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var stack = new Array('seoul','new york','ladarkh','pusan', 'Tsukuba');
+    function getRandNum(arr) {
+      var index = Math.floor(stack.length * Math.random());
+      return stack[index];
+    }
+    console.log(getRandNum(stack));
+    
+    // 함수를 배열 객체에 포함시킨다 => 배열 객체의 내장 메서드처럼 사용가능!!
+    Array.prototype.randMyFunc = function() {
+      var index = Math.floor(stack.length * Math.random());
+      return stack[index];
+
+    }
+    var arr = new Array('seoul','new york','ladarkh','pusan', 'Tsukuba');
+    console.log(arr.randMyFunc());
+  </script>
+</body>
+</html>

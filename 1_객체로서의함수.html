@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 객체를 생성자로 생성
+    var sum1 = new Function('x', 'y', 'return x+y');
+    console.log(sum1(1, 2)); 
+
+
+    /////// 객체를 편리하게 만드는 법 => 리터럴 사용하기 !!
+    //함수 리터럴
+    function sum2(x, y){return x+y;}
+    console.log(sum2(1, 2));
+    //객체 리터럴  new Object 
+    var o = {};
+    //배열 리터럴 new Array(1, 2, 3);
+    var a = [1, 2, 3];
+
+    //Function 의 메서드인 apply, call 
+    var o = {};
+    var p = {};
+    function func() {
+      switch(this) {
+        case o:
+          document.write('o<br />');
+          break;
+        case p:
+          document.write('o<br />');
+          break;
+        case window:
+          document.write('window<br />');
+          break;
+      }
+    }
+    
+    // 함수는 다양한 객체에 소속될 수 있다.
+    func(); // window 객체의 메서드로서의 함수
+    func.apply(o); // o 객체의 메서드로서의 함수 ... 첫번째 인자 == 함수 호출 컨텍스트
+    func.apply(p); // p 객체의 메서드로서으 함수 
+
+  </script>
+</body>
+</html>

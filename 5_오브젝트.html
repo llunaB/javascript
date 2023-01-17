@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //js의 모든 객체는 Object 객체를 상속받는다.
+    //따라서 모든 객체는 오브젝트 객체의 프로퍼티를 가지고 있다.
+
+    /////////*** Object.keys() => 객체가 가진 key값을 리턴한다.
+    //Object(생성자함수).keys = function(){}
+
+    //The Object.keys() static method returns
+    //an array of a given object's own enumerable
+    //string-keyed property names.
+    
+    var grades = {'a': 100, 'b': 90, 'c': 80};
+    console.log(Object.keys(grades)); // ['a', 'b', 'c']
+
+    ////////*** Object.prototype.toString() ==> 프로토타입의 경우는 객체를 생성하여 사용한다.
+    
+    //Object(생성자함수).prototype.toString = function(){}
+    //new Object로 객체를 만들고, 그 객체의 메서드로서 사용한다.
+    
+    //The toString() method returns a string representing the object.
+    //This method is meant to be overridden by derived objects
+    //for custom type conversion logic.
+
+    var object1 = new Object();
+    console.log(Object.prototype.toString(object1)); //[object Object]
+    console.log(object1.toString());//[object Object]
+    
+    var object2 = new Array(1,2,3);
+    console.log(Object.prototype.toString(object2)); //[object Object]
+    console.log(object2.toString());//1,2,3
+
+    ///////Object 객체를 확장하여 모든 객체가 접근할 수 있는 API 만들기
+    Object.prototype.contain = function(needle) {
+      for(var name in this) { //this는 메서드가 소속된 객체(o.contain이므로 o)
+        if(this[name] === needle) {
+          return true;
+        }
+      }
+      return false;
+    }
+    
+    var o = {'name':'egoing', 'city':'seoul'}
+    console.log(o.contain('egoing'));
+    var a = ['egoing','leezche','grapittie'];
+    console.log(a.contain('leezche'));
+
+  </script>
+</body>
+</html>

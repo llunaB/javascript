@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    foo(); //hi
+    foo2();//Uncaught TypeError: foo2 is not a function
+
+    // 함수선언문
+    function foo() {
+      console.log("hi");
+    }
+
+    //함수선언식
+    var foo2 = function() {
+      console.log("hihi");
+    }
+  </script>
+  
+</body>
+</html>

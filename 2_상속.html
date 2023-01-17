@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 생성자
+    function Person(name) {
+      this.name = name;
+    }
+    
+    // prototype은 프로퍼티임 그 안에 객체가 있다.
+    Person.prototype.name = null;
+    Person.prototype.introduce = function() {
+      return 'My name is ' + this.name;
+    }
+
+    // 생성자
+    function Programmer(name) {
+      this.name = name;
+    }
+
+    // 프로그래머 객체의 프로토타입과 펄슨의 객체를 연결
+    // => 프로그래머 객체가 메소드 introduce를 사용
+    // 프로그래머가 펄슨의 기능을 상속!!!
+    Programmer.prototype = new Person();
+    Programmer.prototype.coding = function() {
+      return "hello world!";
+    }
+
+    var p1 = new Programmer('Jessie');
+    document.write(p1.introduce()+"<br />");
+    document.write(p1.coding()+"<br />");
+  </script>
+  
+</body>
+</html>
